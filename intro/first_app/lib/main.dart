@@ -18,7 +18,19 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('First App'),
         ),
-        body: Center(),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                'Hello World!',
+              ),
+              Text(
+                'It\'s time to learn Flutter!',
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
