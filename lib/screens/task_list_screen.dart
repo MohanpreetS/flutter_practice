@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../providers/task_list.dart';
 import '../widgets/task_card.dart';
+import '../widgets/task_card_list.dart';
 
 class TaskScreen extends StatefulWidget {
   static const routeName = './task_creen';
@@ -16,12 +17,7 @@ class _TaskScreenState extends State<TaskScreen> {
     final taskList = Provider.of<TaskList>(context);
     return Scaffold(
       appBar: AppBar(title: Text('Questify')),
-      body: ListView.builder(
-        itemBuilder: (context, i) => Card(
-          child: TaskCard(title: taskList.tasks[i].title),
-        ),
-        itemCount: taskList.tasks.length,
-      ),
+      body: TaskCardList(taskList: taskList),
     );
   }
 }
