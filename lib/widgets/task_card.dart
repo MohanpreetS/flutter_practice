@@ -14,7 +14,7 @@ class _TaskCardState extends State<TaskCard> {
     return Card(
       elevation: 8,
       margin: EdgeInsets.symmetric(
-        vertical: 8,
+        vertical: 6,
         horizontal: 8,
       ),
       child: ListTile(
