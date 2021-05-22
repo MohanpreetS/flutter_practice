@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Questify',
-        theme: ThemeData.dark(),
         home: TaskScreen(),
+        theme: ThemeData.dark(),
         routes: {
           TaskScreen.routeName: (_) => TaskScreen(),
         },

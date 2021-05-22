@@ -17,11 +17,25 @@ class TaskCardList extends StatefulWidget {
 class _TaskCardListState extends State<TaskCardList> {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (context, i) => Card(
-        child: TaskCard(title: widget.taskList.tasks[i].title),
+    // return ListView.builder(
+    //   itemBuilder: (context, i) => Card(
+    //     child: ClipRRect(
+    //         borderRadius: BorderRadius.circular(15),
+    //         child: TaskCard(title: widget.taskList.tasks[i].title),),
+    //   ),
+    //   itemCount: widget.taskList.tasks.length,
+    // );
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          ...widget.taskList.tasks
+              .map((e) => Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TaskCard(title: e.title),
+                  ))
+              .toList(),
+        ],
       ),
-      itemCount: widget.taskList.tasks.length,
     );
   }
 }

@@ -11,14 +11,34 @@ class TaskCard extends StatefulWidget {
 class _TaskCardState extends State<TaskCard> {
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 8,
-      margin: EdgeInsets.symmetric(
-        vertical: 6,
-        horizontal: 8,
-      ),
-      child: ListTile(
-        title: Text(widget.title),
+    final mediaQuery = MediaQuery.of(context);
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(15),
+      child: Container(
+        height: mediaQuery.size.height * 0.1,
+        padding: const EdgeInsets.symmetric(
+          horizontal: 15,
+          vertical: 8,
+        ),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Colors.redAccent.withOpacity(0.7),
+              Colors.redAccent,
+            ],
+          ),
+          //borderRadius: BorderRadius.circular(15),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(widget.title),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [Text('Time left'), Text('-')],
+            )
+          ],
+        ),
       ),
     );
   }
