@@ -24,7 +24,7 @@ class CategoriesScreen extends StatelessWidget {
           meals: filteredMeals,
         ),
       ),
-    ); // Navigator.push(context, rou te)
+    ); // Navigator.push(context, route)
   }
 
   @override
