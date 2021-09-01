@@ -50,6 +50,12 @@ class _FiltersScreenState extends ConsumerState<FiltersScreen> {
       // ),
       body: WillPopScope(
         onWillPop: () async {
+          ref.read(filtersProvider.notifier).setFilters({
+            Filter.glutenFree: _glutenFreeFilterSet,
+            Filter.lactoseFree: _lactoseFreeFilterSet,
+            Filter.vegetarian: _vegetarianFilterSet,
+            Filter.vegan: _veganFilterSet,
+          });
           // Navigator.of(context).pop();
           return true;
         },
