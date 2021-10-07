@@ -11,7 +11,13 @@ class GroceryList extends StatefulWidget {
 }
 
 class _GroceryListState extends State<GroceryList> {
-  void _addItem() {}
+  void _addItem() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (ctx) => const NewItem(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
