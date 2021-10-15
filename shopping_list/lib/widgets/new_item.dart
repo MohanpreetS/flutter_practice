@@ -29,7 +29,7 @@ class _NewItemState extends State<NewItem> {
                   label: Text('Name'),
                 ),
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
+                  if (value == null || value.isEmpty || value.trim().length <= 1 || value.trim().length > 50) {
                     return 'Must be between 1 and 50 characters.';
                   }
                   return null;
