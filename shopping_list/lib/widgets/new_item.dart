@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:shopping_list/data/categories.dart';
 import 'package:shopping_list/models/category.dart';
+import 'package:shopping_list/models/grocery_item.dart';
 
 class NewItem extends StatefulWidget {
   const NewItem({super.key});
@@ -21,9 +22,6 @@ class _NewItemState extends State<NewItem> {
   void _saveItem() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      print(_enteredName);
-      print(_enteredQuantity);
-      print(_selectedCategory);
     }
   }
 
@@ -45,10 +43,7 @@ class _NewItemState extends State<NewItem> {
                   label: Text('Name'),
                 ),
                 validator: (value) {
-                  if (value == null ||
-                      value.isEmpty ||
-                      value.trim().length <= 1 ||
-                      value.trim().length > 50) {
+                  if (value == null || value.isEmpty || value.trim().length <= 1 || value.trim().length > 50) {
                     return 'Must be between 1 and 50 characters.';
                   }
                   return null;
@@ -71,10 +66,7 @@ class _NewItemState extends State<NewItem> {
                       keyboardType: TextInputType.number,
                       initialValue: _enteredQuantity.toString(),
                       validator: (value) {
-                        if (value == null ||
-                            value.isEmpty ||
-                            int.tryParse(value) == null ||
-                            int.tryParse(value)! <= 0) {
+                        if (value == null || value.isEmpty || int.tryParse(value) == null || int.tryParse(value)! <= 0) {
                           return 'Must be a valid, positive number.';
                         }
                         return null;
