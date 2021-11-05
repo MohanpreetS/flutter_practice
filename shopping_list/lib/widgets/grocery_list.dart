@@ -80,6 +80,13 @@ class _GroceryListState extends State<GroceryList> {
     final url = Uri.https('fltter-prep-default-rtdb.firebaseio.com', 'shopping-list/${item.id}.json');
 
     final response = await http.delete(url);
+
+    if (response.statusCode >= 400) {
+      // Optional: Show error message
+      setState(() {
+        _groceryItems.insert(index, item);
+      });
+    }
   }
 
   @override
