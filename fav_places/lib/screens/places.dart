@@ -1,3 +1,4 @@
+import 'package:favorite_places/widgets/places_list.dart';
 import 'package:flutter/material.dart';
 
 class PlacesScreen extends StatelessWidget {
@@ -14,6 +15,9 @@ class PlacesScreen extends StatelessWidget {
             onPressed: () {},
           ),
         ],
+      ),
+      body: PlacesList(
+        places: [],
       ),
     );
   }
