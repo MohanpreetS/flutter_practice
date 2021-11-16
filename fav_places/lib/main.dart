@@ -28,7 +28,9 @@ final theme = ThemeData().copyWith(
 );
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    const ProviderScope(child: MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {
