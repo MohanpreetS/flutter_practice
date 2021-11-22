@@ -32,21 +32,6 @@ class _LocationInputState extends State<LocationInput> {
                 ),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            TextButton.icon(
-              icon: const Icon(Icons.location_on),
-              label: const Text('Get Current Location'),
-              onPressed: () {},
-            ),
-            TextButton.icon(
-              icon: const Icon(Icons.map),
-              label: const Text('Select on Map'),
-              onPressed: () {},
-            ),
-          ],
-        ),
       ],
     );
   }
