@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:favorite_places/widgets/location_input.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 
@@ -26,9 +27,7 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
       return;
     }
 
-    ref
-        .read(userPlacesProvider.notifier)
-        .addPlace(enteredTitle, _selectedImage!);
+    ref.read(userPlacesProvider.notifier).addPlace(enteredTitle, _selectedImage!);
 
     Navigator.of(context).pop();
   }
