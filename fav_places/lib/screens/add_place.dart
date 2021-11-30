@@ -25,11 +25,15 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
   void _savePlace() {
     final enteredTitle = _titleController.text;
 
-    if (enteredTitle.isEmpty || _selectedImage == null || _selectedLocation == null) {
+    if (enteredTitle.isEmpty ||
+        _selectedImage == null ||
+        _selectedLocation == null) {
       return;
     }
 
-    ref.read(userPlacesProvider.notifier).addPlace(enteredTitle, _selectedImage!, _selectedLocation!);
+    ref
+        .read(userPlacesProvider.notifier)
+        .addPlace(enteredTitle, _selectedImage!, _selectedLocation!);
 
     Navigator.of(context).pop();
   }
@@ -73,7 +77,7 @@ class _AddPlaceScreenState extends ConsumerState<AddPlaceScreen> {
             ElevatedButton.icon(
               onPressed: _savePlace,
               icon: const Icon(Icons.add),
-              label: const Text('Add Place '),
+              label: const Text('Add Place'),
             ),
           ],
         ),
