@@ -34,6 +34,24 @@ class _MapScreenState extends State<MapScreen> {
             onPressed: () {},
           ),
       ]),
+      body: GoogleMap(
+        initialCameraPosition: CameraPosition(
+          target: LatLng(
+            widget.location.latitude,
+            widget.location.longitude,
+          ),
+          zoom: 16,
+        ),
+        markers: {
+          Marker(
+            markerId: const MarkerId('m1'),
+            position: LatLng(
+              widget.location.latitude,
+              widget.location.longitude,
+            ),
+          ),
+        },
+      ),
     );
   }
 }
