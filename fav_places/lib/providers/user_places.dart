@@ -8,10 +8,16 @@ import 'package:sqflite/sqlite_api.dart';
 
 import 'package:favorite_places/models/place.dart';
 
+Future<Database> _getDatabase() async {
+  ...
+}
+
 class UserPlacesNotifier extends StateNotifier<List<Place>> {
   UserPlacesNotifier() : super(const []);
 
   Future<void> loadPlaces() async {
+    final db = await _getDatabase();
+    final data = await db.query('user_places');
     final places = data
         .map(
           (row) => Place(
@@ -35,7 +41,8 @@ class UserPlacesNotifier extends StateNotifier<List<Place>> {
     final filename = path.basename(image.path);
     final copiedImage = await image.copy('${appDir.path}/$filename');
 
-    final newPlace = Place(title: title, image: copiedImage, location: location);
+    final newPlace =
+        Place(title: title, image: copiedImage, location: location);
 
     final db = await _getDatabase();
     db.insert('user_places', {
@@ -51,6 +58,7 @@ class UserPlacesNotifier extends StateNotifier<List<Place>> {
   }
 }
 
-final userPlacesProvider = StateNotifierProvider<UserPlacesNotifier, List<Place>>(
+final userPlacesProvider =
+    StateNotifierProvider<UserPlacesNotifier, List<Place>>(
   (ref) => UserPlacesNotifier(),
 );
