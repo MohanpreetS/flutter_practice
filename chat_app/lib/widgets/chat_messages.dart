@@ -25,6 +25,18 @@ class ChatMessages extends StatelessWidget {
           );
         }
 
+        if (!chatSnapshots.hasData || chatSnapshots.data!.docs.isEmpty) {
+          return const Center(
+            child: Text('No messages found.'),
+          );
+        }
+
+        if (chatSnapshots.hasError) {
+          return const Center(
+            child: Text('Something went wrong...'),
+          );
+        }
+
         final loadedMessages = chatSnapshots.data!.docs;
 
         return ListView.builder(
