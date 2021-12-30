@@ -19,6 +19,12 @@ class ChatMessages extends StatelessWidget {
           )
           .snapshots(),
       builder: (ctx, chatSnapshots) {
+        if (chatSnapshots.connectionState == ConnectionState.waiting) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+
         if (!chatSnapshots.hasData || chatSnapshots.data!.docs.isEmpty) {
           return const Center(
             child: Text('No messages found.'),
